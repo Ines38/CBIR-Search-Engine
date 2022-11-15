@@ -30,5 +30,6 @@ The web application is developed using:
 - FastAPI : to develop an API to enable querying from the web application.
 - Streamlit : to design a frontend for the application where users perform text and image search.
 
-
+### Deployment
+Both of the API and frontend of the web application are containerized using Docker and docker-compose.
 <!-- More about this process is available in this detailed [report](/docs). -->

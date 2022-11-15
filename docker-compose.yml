@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  Frontend:
+    build: Frontend
+    ports:
+      - 8501:8501
+    network_mode: host
+    depends_on:
+      - API
+    volumes:
+        - ./storage:/storage
+  API:
+    build: API
+    ports:
+      - 8080:8080
+    network_mode: host
+    volumes:
+      - ./storage:/storage
