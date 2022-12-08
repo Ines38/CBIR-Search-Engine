@@ -63,13 +63,13 @@ class ElasticSearch(BaseModel):
             query = {
                 "query":{
                     "elastiknn_nearest_neighbors": {
-                         "vec": {
+                        "vec": {
                             "index": INDEX_NAME,
                             "field": "featureVec",
                             "id": image_id
                         },
                         "field": "featureVec",
-                        "model": "lsh",
+                        "model": "exact",
                         "similarity": "l2",
                         "candidates": condidates
                 }
@@ -87,7 +87,7 @@ class ElasticSearch(BaseModel):
                             "values": features
                         },
                         "field": "featureVec",
-                        "model": "lsh",
+                        "model": "exact",
                         "similarity": "l2",
                         "candidates": condidates
                     }
@@ -106,7 +106,7 @@ class ElasticSearch(BaseModel):
                             "values": features
                         },
                         "field": "featureVec",
-                        "model": "lsh",
+                        "model": "exact",
                         "similarity": "l2",
                         "candidates": condidates
                     }
@@ -166,7 +166,7 @@ class ElasticSearch(BaseModel):
                                 "elastiknn_nearest_neighbors": {
                                     "field": "featureVec",
                                     "similarity": "l2",
-                                    "model": "lsh",
+                                    "model": "exact",
                                     "candidates": condidates,
                                     "vec": {
                                         "values": features
@@ -201,7 +201,7 @@ class ElasticSearch(BaseModel):
                             "elastiknn_nearest_neighbors": {
                                 "field": "featureVec",
                                 "similarity": "l2",
-                                "model": "lsh",
+                                "model": "exact",
                                 "candidates": condidates,
                                 "vec": {
                                     "values": features
@@ -235,7 +235,8 @@ class ElasticSearch(BaseModel):
                             "elastiknn_nearest_neighbors": {
                                 "field": "featureVec",
                                 "similarity": "l2",
-                                "model": "lsh",
+                                "model": "exact",
+                                "number_of_shards":1,
                                 "candidates": condidates,
                                 "vec": {
                                     "values": features

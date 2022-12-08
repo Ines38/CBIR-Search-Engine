@@ -1,16 +1,16 @@
 version: '3'
 
 services:
-  Frontend:
+  frontend:
     build: Frontend
     ports:
       - 8501:8501
     network_mode: host
     depends_on:
-      - API
+      - api
     volumes:
         - ./storage:/storage
-  API:
+  api:
     build: API
     ports:
       - 8080:8080
